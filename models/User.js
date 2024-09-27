@@ -7,7 +7,7 @@ const userSchema = new Schema({
     required: true,
     unique: true,
     trim: true
-    },
+  },
   email: {
     type: String,
     required: true,
@@ -16,7 +16,7 @@ const userSchema = new Schema({
   },
   thoughts: [{
     type: Schema.Types.ObjectId,
-    ref: 'thought'
+    ref: 'Thought'
   }],
   friends: [{
     type: Schema.Types.ObjectId,
@@ -24,8 +24,8 @@ const userSchema = new Schema({
   }]
 });
 
-userSchema.virtual('friendcount').get(function() {
-    return this.friends.length;
+userSchema.virtual('friendCount').get(function() {
+  return this.friends.length;
 });
 
 const User = mongoose.model('User', userSchema);
